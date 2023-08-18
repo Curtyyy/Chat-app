@@ -38,7 +38,7 @@ const Resgister = () => {
   //this code redirect to chat page when have User in local storage.
   useEffect(() => {
     if (localStorage.getItem("chat-app-user")) {
-      navigate("/chat");
+      navigate("/setAvatar");
     }
   }, []);
 
