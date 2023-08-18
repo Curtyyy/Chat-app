@@ -36,10 +36,13 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: server/package-lock.json
       - name: Install dependencies
         run: npm install --force
       - name: Build
         run: npm run build
+      - name: Server Start
+        run: npm start
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
