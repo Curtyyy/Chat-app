@@ -76,22 +76,23 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
                 <Logout />
               </div>
             </div>
-            <div className="flex-1 flex flex-col w-full h-fit overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 p-2 ">
+            <div className="flex-1 flex flex-col w-full h-fit overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 p-2 relative">
               {messages.map((message, index) => {
                 return (
                   <div
                     ref={scrollRef}
                     key={uuidv4()}
-                    className="relative flex justify-center items-center py-7"
+                    className="relative flex justify-center items-center py-7 whitespace-normal"
                   >
                     <div
                       className={`${
                         message.fromSelf
-                          ? "bg-white bg-opacity-10 flex justify-end items-center place-content-end w-fit h-fit py-2 px-3 mx-2 my-2 rounded-2xl absolute right-0"
-                          : "bg-white bg-opacity-50 flex justify-start items-center w-fit py-2 px-3 mx-2 my-2 rounded-2xl absolute left-0"
+                          ? "bg-white bg-opacity-10 flex justify-end items-center place-content-end py-2 px-3 mx-2 my-2 rounded-2xl absolute right-0 w-1/3"
+                          : "bg-white bg-opacity-50 flex justify-start items-center py-2 px-3 mx-2 my-2 rounded-2xl absolute left-0 w-1/3 whitespace-normal"
                       }`}
                     >
-                      <p>{message.message}</p>
+                      {/* {message.message} */}
+                      <p className="relative w-full break-words">{message.message}</p>
                     </div>
                   </div>
                 );
